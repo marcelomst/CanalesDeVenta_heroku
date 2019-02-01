@@ -1,9 +1,13 @@
 source 'https://rubygems.org'
 
-ruby '2.3.1', :engine => 'jruby', :engine_version => '9.1.8.0'
+ruby '~> 2.3.1', :engine => 'jruby', :engine_version => '9.1.17.0'
+
+# gem 'cowsay'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.4'
+
+
 # Use postgresql as the database for Active Record
 gem 'activerecord-jdbcpostgresql-adapter'
 gem 'rails_12factor', group: :production
