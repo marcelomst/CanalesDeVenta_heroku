@@ -1,6 +1,7 @@
 class WelcomeController < ApplicationController
   # GET /welcome
-  require 'C:\canalesDeVenta\wired'
+  # require 'C:\canalesDeVenta\wired'
+  require './wired'
   require 'date'
   def index
     wired = Wired.new
