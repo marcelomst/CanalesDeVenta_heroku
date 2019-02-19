@@ -1,5 +1,5 @@
 class SolicitudsController < ApplicationController
-  require 'C:\canalesDeVenta\wired'
+  require './wired'
   require 'date'
   before_action :set_solicitud, only: [:edit]
   skip_before_action :verify_authenticity_token

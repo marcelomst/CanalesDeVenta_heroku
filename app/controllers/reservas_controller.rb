@@ -1,5 +1,5 @@
 class ReservasController < ApplicationController
-  require 'C:\canalesDeVenta\wired'
+  require './wired'
   require 'date'
   require 'json'
   before_action :set_reserva, only: [:edit, :destroy]

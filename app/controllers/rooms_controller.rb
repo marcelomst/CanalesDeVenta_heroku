@@ -1,6 +1,6 @@
 class RoomsController < ApplicationController
 
-  require 'C:\canalesDeVenta\wired'
+  require './wired'
   require 'date'
   
   before_action :set_room, only: [:show, :edit, :destroy]
