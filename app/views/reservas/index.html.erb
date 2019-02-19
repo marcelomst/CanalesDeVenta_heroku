@@ -1,0 +1,53 @@
+<h1>Listing reservas</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Id channel</th>
+      <th>Reservation code</th>
+      <th>Arrival hour</th>
+      <th>Customer mail</th>
+      <th>Customer name</th>
+      <th>Customer surname</th>
+      <th>Date arrival</th>
+      <th>Date departure</th>
+      <th>Status</th>
+      <th>Channel reservation code</th>
+      <th>Men</th>
+      <th>Customer notes</th>
+      <th>Roomnight</th>
+      <th>Amount</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @reservas.each do |reserva| %>
+      <tr>
+        <td><%= reserva.id%></td>
+        <td><%= reserva.id_channel %></td>
+        <td><%= reserva.reservation_code %></td>
+        <td><%= reserva.arrival_hour %></td>
+        <td><%= reserva.customer_mail %></td>
+        <td><%= reserva.customer_name %></td>
+        <td><%= reserva.customer_surname %></td>
+        <td><%= reserva.date_arrival %></td>
+        <td><%= reserva.date_departure %></td>
+        <td><%= reserva.status %></td>
+        <td><%= reserva.channel_reservation_code %></td>
+        <td><%= reserva.men %></td>
+        <td><%= reserva.customer_notes %></td>
+        <td><%= reserva.roomnight %></td>
+        <td><%= reserva.amount %></td>
+        <td><%= link_to 'Show', reserva %></td>
+        <td><%= link_to 'Edit', edit_reserva_path(reserva) %></td>
+        <td><%= link_to 'Destroy', reserva, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Reserva', new_reserva_path %>

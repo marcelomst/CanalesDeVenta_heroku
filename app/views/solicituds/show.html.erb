@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Id:</strong>
+  <%= @solicitud.id%>
+</p>
+
+<p>
+  <strong>Id solicitud:</strong>
+  <%= @solicitud.id_solicitud %>
+</p>
+<p>
+  <strong>Reservation Code:</strong>
+  <%= @solicitud.reservation_code %>
+</p>
+
+
+
+<%= link_to 'Edit', edit_solicitud_path(@solicitud) %> |
+<%= link_to 'Back', solicituds_path %>

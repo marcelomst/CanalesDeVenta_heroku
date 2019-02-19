@@ -1,0 +1,53 @@
+<h1>Listing solicituds</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Id solicitud</th>
+      <th>Lname</th>
+      <th>Fname</th>
+      <th>Email</th>
+      <th>City</th>
+      <th>Phone</th>
+      <th>Street</th>
+      <th>Country</th>
+      <th>Arrival hour</th>
+      <th>Reserva</th>
+      <th>Amount</th>
+      <th>Rooms</th>
+      <th>Reserva</th>
+      <th>Estado</th>
+      <th>Reserva OTA</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @solicituds.each do |solicitud| %>
+      <tr>
+        <td><%= solicitud.id_solicitud %></td>
+         <td><%= solicitud.lname %></td>
+        <td><%= solicitud.fname %></td>
+        <td><%= solicitud.email %></td>
+        <td><%= solicitud.city %></td>
+        <td><%= solicitud.phone %></td>
+        <td><%= solicitud.street %></td>
+        <td><%= solicitud.country %></td>
+        <td><%= solicitud.arrival_hour %></td>
+        <td><%= solicitud.reservation_code %></td>
+        <td><%= solicitud.amount %></td>
+        <td><%= solicitud.rooms %></td>
+        <td><%= solicitud.reservation_code %></td>
+        <td><%= solicitud.estado %></td>
+        <td><%= solicitud.reservation_code_ota %></td>
+        <td><%= link_to 'Show', solicitud %></td>
+        <td><%= link_to 'Edit', edit_solicitud_path(solicitud) %></td>
+        <td><%= link_to 'Destroy', solicitud, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Solicitud', new_solicitud_path %>

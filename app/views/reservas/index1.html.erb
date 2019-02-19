@@ -1,0 +1,97 @@
+<h1>Listing reservas</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Id channel</th>
+      <th>Special offer</th>
+      <th>Reservation code</th>
+      <th>Arrival hour</th>
+      <th>Booked rate</th>
+      <th>Rooms</th>
+      <th>Customer mail</th>
+      <th>Customer country</th>
+      <th>Children</th>
+      <th>Payment gateway fee</th>
+      <th>Customer surname</th>
+      <th>Date departure</th>
+      <th>Forced price</th>
+      <th>Amount reason</th>
+      <th>Customer city</th>
+      <th>Opportunities</th>
+      <th>Date received</th>
+      <th>Was modified</th>
+      <th>Sessionseed</th>
+      <th>Customer name</th>
+      <th>Date arrival</th>
+      <th>Status</th>
+      <th>Channel reservation code</th>
+      <th>Customer phone</th>
+      <th>Orig amount</th>
+      <th>Men</th>
+      <th>Customer notes</th>
+      <th>Customer address</th>
+      <th>Status reason</th>
+      <th>Roomnight</th>
+      <th>Customer language</th>
+      <th>Fount</th>
+      <th>Customer zip</th>
+      <th>Amount</th>
+      <th>Cc info</th>
+      <th>Room opportunities</th>
+      <th>Customer language iso</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @reservas.each do |reserva| %>
+      <tr>
+        <td><%= reserva.id_channel %></td>
+        <td><%= reserva.special_offer %></td>
+        <td><%= reserva.reservation_code %></td>
+        <td><%= reserva.arrival_hour %></td>
+        <td><%= reserva.booked_rate %></td>
+        <td><%= reserva.rooms %></td>
+        <td><%= reserva.customer_mail %></td>
+        <td><%= reserva.customer_country %></td>
+        <td><%= reserva.children %></td>
+        <td><%= reserva.payment_gateway_fee %></td>
+        <td><%= reserva.customer_surname %></td>
+        <td><%= reserva.date_departure %></td>
+        <td><%= reserva.forced_price %></td>
+        <td><%= reserva.amount_reason %></td>
+        <td><%= reserva.customer_city %></td>
+        <td><%= reserva.opportunities %></td>
+        <td><%= reserva.date_received %></td>
+        <td><%= reserva.was_modified %></td>
+        <td><%= reserva.sessionSeed %></td>
+        <td><%= reserva.customer_name %></td>
+        <td><%= reserva.date_arrival %></td>
+        <td><%= reserva.status %></td>
+        <td><%= reserva.channel_reservation_code %></td>
+        <td><%= reserva.customer_phone %></td>
+        <td><%= reserva.orig_amount %></td>
+        <td><%= reserva.men %></td>
+        <td><%= reserva.customer_notes %></td>
+        <td><%= reserva.customer_address %></td>
+        <td><%= reserva.status_reason %></td>
+        <td><%= reserva.roomnight %></td>
+        <td><%= reserva.customer_language %></td>
+        <td><%= reserva.fount %></td>
+        <td><%= reserva.customer_zip %></td>
+        <td><%= reserva.amount %></td>
+        <td><%= reserva.cc_info %></td>
+        <td><%= reserva.room_opportunities %></td>
+        <td><%= reserva.customer_language_iso %></td>
+        <td><%= link_to 'Show', reserva %></td>
+        <td><%= link_to 'Edit', edit_reserva_path(reserva) %></td>
+        <td><%= link_to 'Destroy', reserva, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Reserva', new_reserva_path %>

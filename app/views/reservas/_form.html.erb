@@ -1,0 +1,165 @@
+<%= form_for(@reserva) do |f| %>
+  <% if @reserva.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@reserva.errors.count, "error") %> prohibited this reserva from being saved:</h2>
+
+      <ul>
+      <% @reserva.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :id_channel %><br>
+    <%= f.text_field :id_channel %>
+  </div>
+  <div class="field">
+    <%= f.label :special_offer %><br>
+    <%= f.text_field :special_offer %>
+  </div>
+  <div class="field">
+    <%= f.label :reservation_code %><br>
+    <%= f.text_field :reservation_code %>
+  </div>
+  <div class="field">
+    <%= f.label :arrival_hour %><br>
+    <%= f.text_field :arrival_hour %>
+  </div>
+  <div class="field">
+    <%= f.label :booked_rate %><br>
+    <%= f.text_field :booked_rate %>
+  </div>
+  <div class="field">
+    <%= f.label :rooms %><br>
+    <%= f.text_field :rooms %>
+  </div>
+  <div class="field">
+    <%= f.label :customer_mail %><br>
+    <%= f.text_field :customer_mail %>
+  </div>
+  <div class="field">
+    <%= f.label :customer_country %><br>
+    <%= f.text_field :customer_country %>
+  </div>
+  <div class="field">
+    <%= f.label :children %><br>
+    <%= f.text_field :children %>
+  </div>
+  <div class="field">
+    <%= f.label :payment_gateway_fee %><br>
+    <%= f.text_field :payment_gateway_fee %>
+  </div>
+  <div class="field">
+    <%= f.label :customer_surname %><br>
+    <%= f.text_field :customer_surname %>
+  </div>
+  <div class="field">
+    <%= f.label :date_departure %><br>
+    <%= f.text_field :date_departure %>
+  </div>
+  <div class="field">
+    <%= f.label :forced_price %><br>
+    <%= f.text_field :forced_price %>
+  </div>
+  <div class="field">
+    <%= f.label :amount_reason %><br>
+    <%= f.text_field :amount_reason %>
+  </div>
+  <div class="field">
+    <%= f.label :customer_city %><br>
+    <%= f.text_field :customer_city %>
+  </div>
+  <div class="field">
+    <%= f.label :opportunities %><br>
+    <%= f.text_field :opportunities %>
+  </div>
+  <div class="field">
+    <%= f.label :date_received %><br>
+    <%= f.text_field :date_received %>
+  </div>
+  <div class="field">
+    <%= f.label :was_modified %><br>
+    <%= f.text_field :was_modified %>
+  </div>
+  <div class="field">
+    <%= f.label :sessionSeed %><br>
+    <%= f.text_field :sessionSeed %>
+  </div>
+  <div class="field">
+    <%= f.label :customer_name %><br>
+    <%= f.text_field :customer_name %>
+  </div>
+  <div class="field">
+    <%= f.label :date_arrival %><br>
+    <%= f.text_field :date_arrival %>
+  </div>
+  <div class="field">
+    <%= f.label :status %><br>
+    <%= f.text_field :status %>
+  </div>
+  <div class="field">
+    <%= f.label :channel_reservation_code %><br>
+    <%= f.text_field :channel_reservation_code %>
+  </div>
+  <div class="field">
+    <%= f.label :customer_phone %><br>
+    <%= f.text_field :customer_phone %>
+  </div>
+  <div class="field">
+    <%= f.label :orig_amount %><br>
+    <%= f.text_field :orig_amount %>
+  </div>
+  <div class="field">
+    <%= f.label :men %><br>
+    <%= f.text_field :men %>
+  </div>
+  <div class="field">
+    <%= f.label :customer_notes %><br>
+    <%= f.text_field :customer_notes %>
+  </div>
+  <div class="field">
+    <%= f.label :customer_address %><br>
+    <%= f.text_field :customer_address %>
+  </div>
+  <div class="field">
+    <%= f.label :status_reason %><br>
+    <%= f.text_field :status_reason %>
+  </div>
+  <div class="field">
+    <%= f.label :roomnight %><br>
+    <%= f.text_field :roomnight %>
+  </div>
+  <div class="field">
+    <%= f.label :customer_language %><br>
+    <%= f.text_field :customer_language %>
+  </div>
+  <div class="field">
+    <%= f.label :fount %><br>
+    <%= f.text_field :fount %>
+  </div>
+  <div class="field">
+    <%= f.label :customer_zip %><br>
+    <%= f.text_field :customer_zip %>
+  </div>
+  <div class="field">
+    <%= f.label :amount %><br>
+    <%= f.text_field :amount %>
+  </div>
+  <div class="field">
+    <%= f.label :cc_info %><br>
+    <%= f.text_field :cc_info %>
+  </div>
+  <div class="field">
+    <%= f.label :room_opportunities %><br>
+    <%= f.text_field :room_opportunities %>
+  </div>
+  <div class="field">
+    <%= f.label :customer_language_iso %><br>
+    <%= f.text_field :customer_language_iso %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
