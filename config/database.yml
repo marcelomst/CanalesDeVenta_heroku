@@ -81,7 +81,7 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 # production:
-  # <<: *default
-  # database: canalesdeventa_production
-  # username: canalesdeventa
-  # password: <%= ENV['CANALESDEVENTA_DATABASE_PASSWORD'] %>
+  <<: *default
+  database: canalesdeventa_production
+  username: postgres
+  password: <%= ENV['CANALESDEVENTA_DATABASE_PASSWORD'] %>
