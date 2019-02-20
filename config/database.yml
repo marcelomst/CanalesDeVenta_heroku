@@ -80,8 +80,10 @@ test:
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
-# production:
+production:
   <<: *default
   database: canalesdeventa_production
   username: postgres
-  password: <%= ENV['CANALESDEVENTA_DATABASE_PASSWORD'] %>
+  # password: <%= ENV['CANALESDEVENTA_DATABASE_PASSWORD'] %>
+  password: marana1993
+  url: <%= ENV['DATABASE_URL'] %>
