@@ -45,3 +45,4 @@ gem 'puma'
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+gem 'apartment', '~> 1.0', '>= 1.0.2'

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151107175309) do
+ActiveRecord::Schema.define(version: 20190315180746) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -98,6 +98,13 @@ ActiveRecord::Schema.define(version: 20151107175309) do
   add_index "solicituds", ["id_solicitud"], name: "index_solicituds_on_id_solicitud", using: :btree
   add_index "solicituds", ["reservation_code"], name: "index_solicituds_on_reservation_code", using: :btree
   add_index "solicituds", ["reservation_code_ota"], name: "index_solicituds_on_reservation_code_ota", using: :btree
+
+  create_table "users", force: :cascade do |t|
+    t.string   "email"
+    t.string   "subdomain"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "widgets", force: :cascade do |t|
     t.string   "name"
