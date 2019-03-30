@@ -89,4 +89,6 @@ end
 
 # Rails.application.config.middleware.use 'Apartment::Elevators::Domain'
 Rails.application.config.middleware.use 'Apartment::Elevators::Subdomain'
+
+Apartment::Elevators::FirstSubdomain.excluded_subdomains = ['www']
 # Rails.application.config.middleware.use 'Apartment::Elevators::FirstSubdomain'
