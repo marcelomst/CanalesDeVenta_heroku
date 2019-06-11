@@ -44,27 +44,34 @@ class SolicitudsController < ApplicationController
       # @response['status'] = 0
       # @response['id'] = 1
       # @response['response'] = '13324563743'
+      
       if  @response['status'] == 0
 
-        @solicitud = Solicitud.new
+        @solicitud = Solicitud.find_by(id_solicitud: params['id_solicitud'])
 
-        @solicitud.id_solicitud = params['id_solicitud'] 
-        @solicitud.lname = params['lname'] 
-        @solicitud.fname = params['fname'] 
-        @solicitud.email = params['email'] 
-        @solicitud.city = params['city']
-        @solicitud.phone = params['phone'] 
-        @solicitud.street = params['street'] 
-        @solicitud.country = params['country'] 
-        @solicitud.arrival_hour = params['arrival_hour'] 
-        @solicitud.notes = params['notes'] 
-        @solicitud.amount = params['amount'] 
-        @solicitud.rooms = rooms_solicitud
-        @solicitud.dfrom = params['from'] 
-        @solicitud.dto = params['dto'] 
-        @solicitud.reservation_code = @response['response']
-        @solicitud.reservation_code_ota = params['reservation_code_ota']       
-      
+        if  @solicitud == nil
+
+          @solicitud = Solicitud.new
+
+          @solicitud.id_solicitud = params['id_solicitud'] 
+          @solicitud.lname = params['lname'] 
+          @solicitud.fname = params['fname'] 
+          @solicitud.email = params['email'] 
+          @solicitud.city = params['city']
+          @solicitud.phone = params['phone'] 
+          @solicitud.street = params['street'] 
+          @solicitud.country = params['country'] 
+          @solicitud.arrival_hour = params['arrival_hour'] 
+          @solicitud.notes = params['notes'] 
+          @solicitud.amount = params['amount'] 
+          @solicitud.rooms = rooms_solicitud
+          @solicitud.dfrom = params['from'] 
+          @solicitud.dto = params['dto'] 
+          @solicitud.reservation_code = @response['response']
+          @solicitud.reservation_code_ota = params['reservation_code_ota']       
+        else
+          @solicitud.reservation_code = @response['response']
+        end
         if @solicitud.save
           format.json { render :json => @response, notice: 'La solicitud fue consolidada al chanel.-'}
         else
@@ -72,6 +79,7 @@ class SolicitudsController < ApplicationController
           @response['response'] = 'Se consolido la reserva pero no se pudo salvar la solicitud.-'
           format.json { render :json => @response, notice: 'Se consolido la reserva pero no se pudo salvar la solicitud.-'}
         end
+
       else
         format.json { render :json => @response, notice: 'La solicitud no se pudo consolidar.-'}
       end

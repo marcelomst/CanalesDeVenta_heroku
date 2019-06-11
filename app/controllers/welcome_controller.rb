@@ -9,7 +9,7 @@ class WelcomeController < ApplicationController
     ancillary= 1
     mark= 0
         
-   @response = wired.fetch_new_bookings(ancillary, mark)
+    @response = wired.fetch_new_bookings(ancillary, mark)
   
 
   end

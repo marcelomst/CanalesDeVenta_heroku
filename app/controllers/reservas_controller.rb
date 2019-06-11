@@ -111,9 +111,13 @@ class ReservasController < ApplicationController
                 @response['reservas_a_marcar'] << e['reservation_code']
               end
             else
-              if @reserva['status'] == 6
+              if @reserva['status'] == 6 or 
+                 ( (not (@reserva['status'] == 3 or @reserva['status'] == 5)) and not (e['status'] == 5 or e['status'] == 3))
                 # Es una reserva que en la anterior consulta dio overbooking
                 # Se va a intentar de nuevo de asignarle habitacion
+                # O bien una reserva que se intento enviar a recepcion
+                # y sucedio un error, esto es por que, al estar en la tabla reservas y recibirla de la consulta
+                # al channel (implica que desde recepcion no se pudo marcar) y al no cambiar de estado se debe enviar nuevamente
                 if not (e['status'] == 5 or e['status'] == 3) 
                   # No fue cancelada en la ota
                   @reserva['status'] = 1
@@ -124,7 +128,7 @@ class ReservasController < ApplicationController
                   end
                 else
                   # En el intervalo que se intento asignar habitacion en Recepcion
-                  # y dio Overbooking, en la OTA se cancelo esa reserva, entonces 
+                  # , en la OTA se cancelo esa reserva, entonces 
                   # simplemente se descarta.
                   imarca = imarca + 1
                   reservations_a_marcar[imarca] = e['reservation_code']
@@ -133,9 +137,9 @@ class ReservasController < ApplicationController
               else
    
                 if not (@reserva['status'] == 5 or @reserva['status'] == 3)  or 
-                        ((@reserva['status'] == 3 or @reserva['status'] == 5)  and (e['status'] == 1 or e['status'] == 2))
+                        ((@reserva['status'] == 3 or @reserva['status'] == 5)  and (e['status'] == 1 or e['status'] == 2 or e['status'] == 4))
                     if (e['status'] == 5 or e['status'] == 3)
-                      @solicitud = Solicitud.find_by(reservation_code_ota: e['reservation_code'], estado: 0) 
+                      @solicitud = Solicitud.find_by(reservation_code_ota: e['reservation_code']) 
                       if @solicitud != nil 
                         # Es una reserva de OTA que fue alterada en la recepcion 
                         # Se debe ajustar la disponibilidad de la reserva OTA alterada
@@ -148,14 +152,6 @@ class ReservasController < ApplicationController
                         id_solicitud = @solicitud['id_solicitud']
                         reservation_code = @solicitud['reservation_code']
                         @solicitud.save
-                        # Define si hay  otras alteraciones de la reserva OTA: Se determina buscando 
-                        # en solicituds el ultimo  registro de clave "id_solicitud", si el estado es 5 significa
-                        # que no se realizaron otras alteraciones 
-                        @solicitud = Solicitud.where(["id_solicitud = ?", id_solicitud]).last 
-                       
-                        if @solicitud['estado'] != 5
-                          reservation_code = @solicitud['reservation_code']
-                        end 
                         e['reservation_code'] = reservation_code
                         rcode = reservation_code
 
@@ -168,7 +164,7 @@ class ReservasController < ApplicationController
                       @reserva.save
                       @response['response'][@i]['id']=@reserva['id']
                     else
-                      if @reserva['status'] == 3 and ( e['status'] == 1 or e['status'] == 2)
+                      if (@reserva['status'] == 3 or @reserva['status'] == 5) and (e['status'] == 1 or e['status'] == 2 or e['status'] == 4)
                         asigna_response(e)
                         @reserva['status'] = e['status']
                         @reserva.save
