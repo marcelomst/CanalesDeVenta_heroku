@@ -91,8 +91,8 @@ class Wired
     handle_response(response, "Unable to update room data")
   end
   
-  def new_reservation(  dfrom, dto, rooms, customer, amount, lcode = @lcode, token = $token )
-    response = server.call("new_reservation", token, lcode, dfrom.strftime('%d/%m/%Y'), dto.strftime('%d/%m/%Y'), rooms, customer, amount)
+  def new_reservation(  dfrom, dto, rooms, customer, amount, origin= 'xml', ccard= 0, ancillary= 0, guests= 0, ignore_restrs= 0, ignore_avail= 0, lcode = @lcode, token = $token )
+    response = server.call("new_reservation", token, lcode, dfrom.strftime('%d/%m/%Y'), dto.strftime('%d/%m/%Y'), rooms, customer, amount, origin, ccard, ancillary, guests, ignore_restrs, ignore_avail)
 
     handle_response(response, "Unable to do new reservation")
   end
