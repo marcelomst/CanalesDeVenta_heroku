@@ -122,10 +122,10 @@ class ReservasController < ApplicationController
                   # No fue cancelada en la ota
                   @reserva['status'] = 1
                   @reserva.save       
-                  if  @reserva['id_channel'] != 0
+                  # if  @reserva['id_channel'] != 0
                     asigna_response(e)
                     @response['response'][@i]['id']=@reserva['id']
-                  end
+                  # end
                 else
                   # En el intervalo que se intento asignar habitacion en Recepcion
                   # , en la OTA se cancelo esa reserva, entonces 
