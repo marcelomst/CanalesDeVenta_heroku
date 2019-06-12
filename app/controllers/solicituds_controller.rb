@@ -39,7 +39,7 @@ class SolicitudsController < ApplicationController
       wired = Wired.new
       wired.aquire_token
 
-      @response = wired.new_reservation(dfrom, dto, rooms, customer, amount)
+      @response = wired.new_reservation(dfrom, dto, rooms, customer, amount, origin= 'xml', ccard= 0, ancillary= 0, guests= 0, ignore_restrs= 0, ignore_avail= 0)
       # @response={}
       # @response['status'] = 0
       # @response['id'] = 1
